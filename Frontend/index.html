@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f2f2f2;
+  }
+  
+  .login-status {
+    text-align: center;
+    padding: 10px;
+    background-color: #ddd;
+  }
+  
+  .otp-input {
+    margin-top: 10px;
+    text-align: center;
+  }
+  .container2 {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bold {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .input-field {
+    margin-bottom: 10px;
+    width: calc(100% - 20px);
+    padding: 5px;
+    box-sizing: border-box;
+  }
+
+  .button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .conatiner1{
+    justify-content: right;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="menu">
+        <span>&#9776;</span> <!-- Hamburger icon -->
+    </div>
+    <h1>Emergency GPS Tracking </h1>
+    <div>
+    <img src="profile.png" alt="Profile" width="30" height="30"> <!-- Profile icon -->
+     </div>
+</div>
+<div class="conatiner1">
+   <div class="container2">
+    <h2 class="bold">Login</h2>
+    <label for="userId">Enter your ID:</label><br>
+    <input type="text" class="input-field" id="userId" placeholder="Enter your ID"><br>
+    <button class="button" onclick="sendOTP()">Get OTP</button>
+  </div>
+</div>
+
+  <script>
+    function sendOTP() {
+      // Simulate OTP generation and sending
+      const otp = Math.floor(100000 + Math.random() * 900000);
+      document.getElementById("loginSection").style.display = "none";
+      document.getElementById("otpSection").style.display = "block";
+      document.getElementById("status").innerHTML = `OTP sent to your registered mobile number: ${otp}`;
+      localStorage.setItem("otp", otp);
+    }
+  
+    function verifyOTP() {
+      const enteredOTP = document.getElementById("otp").value;
+      const otp = localStorage.getItem("otp");
+      if (enteredOTP === otp) {
+        document.getElementById("otpSection").style.display = "none";
+        document.getElementById("securityPinSection").style.display = "block";
+        document.getElementById("status").innerHTML = "";
+      } else {
+        document.getElementById("status").innerHTML = "Incorrect OTP. Please try again.";
+      }
+    }
+  
+    function createSecurityPin() {
+      const securityPin = document.getElementById("securityPin").value;
+      // Process security pin creation (e.g., send to server)
+      document.getElementById("status").innerHTML = `Security PIN created successfully: ${securityPin}`;
+    }
+  </script>
+
+<button class="otp-input" onclick="sendOTP()">Login</button> <!-- Login button with onclick event to trigger OTP verification -->
+
+</body>
+</html>
+

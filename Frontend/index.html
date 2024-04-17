@@ -1,126 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    align-items: center;
-    
-  }
-  
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #f2f2f2;
-  }
-  
-  .login-status {
-    text-align: center;
-    padding: 10px;
-    background-color: #ddd;
-  }
-  
-  .otp-input {
-    margin-top: 10px;
-    text-align: center;
-  }
-  .container2 {
-    width: 300px;
-    height: 200px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: left;
-    font-family: Arial, sans-serif;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .bold {
-    font-weight: bold;
-    text-align: center;
-  }
-
-  .input-field {
-    margin-bottom: 10px;
-    width: calc(100% - 20px);
-    padding: 5px;
-    box-sizing: border-box;
-  }
-
-  .button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .conatiner1{
-    justify-content: right;
-    align-items: center;
-  }
-</style>
+	<title>My Website</title>
+	<link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
 </head>
 <body>
+	<div class="container">
+		<div class="hamburger" onclick="toggleMenu(); return false;">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="title">Emergency GPS Tracking</div>
+		<button class="login-button" onclick="location.href='/login'; return false;">Login/Sign Up</button>
+	</div>
 
-<div class="container">
-    <div class="menu">
-        <span>&#9776;</span> <!-- Hamburger icon -->
+	<script>
+		// Toggle the menu when the hamburger button is clicked
+		function toggleMenu() {
+			// Add your code here to toggle the menu
+		}
+	</script>
+    <!-- // This is for speech recognition module. Here speech recognition is added -->
+    
+    <div class="speech-section">
+        <div class="language-select">
+          <label for="language">Select Language:</label>
+          <select id="language">
+            <option value="en-US">English</option>
+            <option value="fr-FR">French</option>
+            <option value="hi-IN">Hindi</option>
+          </select>
+        </div>
+        <div class="mic">
+            <i class="mic-icon"></i>
+            <div class="mic-shadow"></div>
+          </div>
+        <div class="output" id="output"></div>
     </div>
-    <h1>Emergency GPS Tracking </h1>
-    <div>
-    <img src="profile.png" alt="Profile" width="30" height="30"> <!-- Profile icon -->
-     </div>
-</div>
-<div class="conatiner1">
-   <div class="container2">
-    <h2 class="bold">Login</h2>
-    <label for="userId">Enter your ID:</label><br>
-    <input type="text" class="input-field" id="userId" placeholder="Enter your ID"><br>
-    <button class="button" onclick="sendOTP()">Get OTP</button>
-  </div>
-</div>
 
-  <script>
-    function sendOTP() {
-      // Simulate OTP generation and sending
-      const otp = Math.floor(100000 + Math.random() * 900000);
-      document.getElementById("loginSection").style.display = "none";
-      document.getElementById("otpSection").style.display = "block";
-      document.getElementById("status").innerHTML = `OTP sent to your registered mobile number: ${otp}`;
-      localStorage.setItem("otp", otp);
-    }
-  
-    function verifyOTP() {
-      const enteredOTP = document.getElementById("otp").value;
-      const otp = localStorage.getItem("otp");
-      if (enteredOTP === otp) {
-        document.getElementById("otpSection").style.display = "none";
-        document.getElementById("securityPinSection").style.display = "block";
-        document.getElementById("status").innerHTML = "";
-      } else {
-        document.getElementById("status").innerHTML = "Incorrect OTP. Please try again.";
-      }
-    }
-  
-    function createSecurityPin() {
-      const securityPin = document.getElementById("securityPin").value;
-      // Process security pin creation (e.g., send to server)
-      document.getElementById("status").innerHTML = `Security PIN created successfully: ${securityPin}`;
-    }
-  </script>
-
-<button class="otp-input" onclick="sendOTP()">Login</button> <!-- Login button with onclick event to trigger OTP verification -->
-
+      <!-- Services Section-->
+      <div class="services-section">
+        <h2>Services</h2>
+        <div class="service-item">
+          <img src="/images/icons8-ambulance-48.png" alt="Emergency Medical Services">
+          <p>Emergency Medical Services</p>
+        </div>
+        <div class="service-item">
+          <img src="./images/icons8-police-car-96.png" alt="Police Services">
+          <p>Police</p>
+        </div>
+        <div class="service-item">
+          <img src="./images/icons8-fire-truck-96.png" alt="Fire Services">
+          <p>Fire</p>
+        </div>
+      </div>
+      <div class="services-section">
+        <div class="service-item">
+          <img src="./images/tow_truck-removebg-preview.png" alt="Tow Truck Services">
+          <p>Tow Truck</p>
+        </div>
+        <div class="service-item">
+          <img src="./images/search_and_rescue-removebg-preview.png" alt="Rescue Services">
+          <p>Rescue</p>
+        </div>
+        <!-- Add more service items as needed -->
+      </div>
+      
 </body>
 </html>
-

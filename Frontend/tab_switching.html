@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .container {
+  display: flex;
+  justify-content: center;
+}
+
+.section {
+  position: relative;
+  border: 5px solid #a7a7a7;
+  border-radius: 10px;
+  padding: 20px;
+  height: 200px; /* Adjust the height as needed */
+  width: 100%; /* Adjust the width as needed */
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+
+.section h2 {
+  margin: 0; /* Remove default margin */
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px; /* Add some space between toggle and content */
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-left: auto;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ff0000;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgb(255, 255, 255);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #007bff;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.hidden {
+  display: none;
+}
+
+.content {
+  text-align: center; /* Center align content */
+}
+
+.speech-section {
+  margin-top: 20px; /* Add some space between content and speech section */
+}
+.left-heading{
+    text-align: left;
+}
+
+
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+          <div class="toggle">
+            <label class="switch" for="toggleBtn">
+              <input type="checkbox" id="toggleBtn">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="content" id="contentSpeech">
+            <h2 class="left-heading">Emergency Quick Speak</h2>
+            <!-- Content for speech recognition system -->
+            <p class="left-heading" >Content for speech recognition system</p>
+            <div class="speech-section">
+              <div class="speech-recognition-section">
+                <i class="fas fa-microphone"></i>
+                <div class="mic">
+                  <i class="mic-icon"></i>
+                  <div class="mic-shadow"></div>
+                </div>
+              </div>
+              <div class="output" id="output"></div>
+            </div>
+          </div>
+          <div class="content hidden" id="contentCall">
+            <h2 class="left-heading">Emergency Quick Call</h2>
+            <!-- Content for call section -->
+            <p class="left-heading" >Content for call section</p>
+          </div>
+          <div class="icons">
+            <div class="icon" id="micIcon"><i class="fas fa-microphone"></i></div>
+            <div class="icon" id="callIcon"><i class="fas fa-phone"></i></div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      
+    <script>
+        document.getElementById("toggleBtn").addEventListener("change", function() {
+  var checked = this.checked;
+  var contentSpeech = document.getElementById("contentSpeech");
+  var contentCall = document.getElementById("contentCall");
+
+  // Toggle visibility of content based on toggle state
+  if (checked) {
+    contentSpeech.classList.add("hidden");
+    contentCall.classList.remove("hidden");
+  } else {
+    contentSpeech.classList.remove("hidden");
+    contentCall.classList.add("hidden");
+  }
+});
+
+
+    </script>  
+</body>
+</html>
+
+

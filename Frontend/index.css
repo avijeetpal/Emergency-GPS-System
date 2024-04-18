@@ -58,18 +58,7 @@
     color: #000000;
     margin-right: 10px;
   }
-  .speech-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
-    border:4px solid #ff0000;
-    border-radius: 5px;
-    margin: 50px auto;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
+  
   .language-select select {
     background-color: #9e9e9e;
     border: none;
@@ -79,12 +68,27 @@
     color: #007BFF;
   }
   
+  .container1 {
+    border: 2px solid #000; /* Border color */
+    padding: 20px; /* Padding around the container */
+    height: 200px; /* Adjust width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+  }
+  
+  .speech-section {
+    margin-top: 20px; /* Add some space above the speech section */
+  }
+  
+  .speech-recognition-section {
+    display: flex;
+    align-items: center;
+  }
+
   .mic {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff;
   }
   .mic::before, .mic::after {
     content: "";
@@ -122,6 +126,7 @@
     border-top: 0;
     margin-top: px;
     z-index: 3;
+    color: #ffffff;
 }
 
   .mic-icon::before, .mic-icon::after {
@@ -147,26 +152,15 @@
     border-radius: 4px;
     transform: translate(-50%, 0);
   }
-  .mic-shadow {
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border-radius: 100%;
-    z-index: 1;
-    box-shadow: 10px -55px 30px 15px #0099ff, 24px -10px 47px 10px #ff0000, -21px -25px 97px 10px #00d9ff, 51px 5px 17px 10px #ff0000, 3px 2px 77px 10px #f50b0b;
-    animation: shadow-rotate 1.5s linear infinite;
-    transform-origin: center;
-  }
+  
   @keyframes circle-size {
     from {
-      width: 20px;
-      height: 20px;
-    }
-    to {
       width: 50px;
       height: 50px;
+    }
+    to {
+      width: 70px;
+      height: 70px;
     }
   }
   @keyframes shadow-rotate {
@@ -272,4 +266,21 @@
     margin: 0;
   }
 
-  
+  /* Horizontal line siren */
+
+  .ambulance-siren-line {
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #ff0000, #00aeff, #ff0000, #00aeff); /* Ambulance siren color gradient */
+    background-size: 200% 100%; /* Double the width of the gradient */
+    animation: ambulance-siren 3s linear infinite; /* Apply animation */
+}
+
+@keyframes ambulance-siren {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 0%; /* Move the gradient to the right */
+    }
+}

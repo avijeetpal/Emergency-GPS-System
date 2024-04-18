@@ -7,13 +7,13 @@
 </head>
 <body>
 	<div class="container">
-		<div class="hamburger" onclick="toggleMenu(); return false;">
+		<div class="hamburger" onclick="location.href='./index.html'; return false;">
 			<span></span>
 			<span></span>
 			<span></span>
 		</div>
 		<div class="title">Emergency GPS Tracking</div>
-		<button class="login-button" onclick="location.href='/login'; return false;">Login/Sign Up</button>
+		<button class="login-button" onclick="location.href='./loginpage.html'; return false;">Login/Sign Up</button>
 	</div>
 
 	<script>
@@ -23,28 +23,27 @@
 		}
 	</script>
     <!-- // This is for speech recognition module. Here speech recognition is added -->
-    
-    <div class="speech-section">
-        <div class="language-select">
-          <label for="language">Select Language:</label>
-          <select id="language">
-            <option value="en-US">English</option>
-            <option value="fr-FR">French</option>
-            <option value="hi-IN">Hindi</option>
-          </select>
-        </div>
-        <div class="mic">
+    <div class="ambulance-siren-line"></div>
+
+    <div class="container1">
+      <div class="speech-section">
+        <div class="speech-recognition-section">
+          <i class="fas fa-microphone"></i>
+          <div class="mic">
             <i class="mic-icon"></i>
             <div class="mic-shadow"></div>
           </div>
+        </div>
         <div class="output" id="output"></div>
+      </div>
     </div>
+    
 
       <!-- Services Section-->
       <div class="services-section">
         <h2>Services</h2>
         <div class="service-item">
-          <img src="/images/icons8-ambulance-48.png" alt="Emergency Medical Services">
+          <img src="./images/icons8-ambulance-48.png" alt="Emergency Medical Services">
           <p>Emergency Medical Services</p>
         </div>
         <div class="service-item">

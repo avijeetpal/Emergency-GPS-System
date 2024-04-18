@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Creation</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,13 +13,12 @@
             padding: 0;
             background-color: #f4f4f4;
         }
-        .container {
+        .account-box{
             max-width: 400px;
             margin: 50px auto;
             background-color: #fff;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgb(202, 63, 63);
         }
         h2 {
             text-align: center;
@@ -34,30 +35,207 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff0000;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+
         input[type="submit"] {
             width: 100%;
             padding: 10px;
             border: none;
             border-radius: 5px;
-            background-color: #007bff;
+            background-color: #ff0000;
             color: #fff;
             cursor: pointer;
         }
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
+        .form-step {
+    display: none; /* Hide all steps by default */
+  }
+
+  .form-step.active {
+    display: block; /* Show the active step */
+  }
+
+  /* Styles for the next button */
+  .next-button {
+    display: none; /* Hide next button by default */
+  }
+
+  .next-button.active {
+    display: inline-block; /* Show next button when active */
+  }
+
+  /* CSS for Date of Birth input */
+#dob {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Styles for OTP container */
+.otp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles for OTP input boxes */
+.otp-box {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Remove default input field outline */
+.otp-box:focus {
+    outline: none;
+}
+
+/* Style for OTP buttons */
+.otp-buttons {
+    margin-top: 20px;
+}
+
+.otp-buttons button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ff0000;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.otp-buttons button:hover {
+    background-color: #0056b3;
+}
+
+
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Create an Account</h2>
-        <form action="#" method="post">
-            <label for="username">Aadhar Card Number</label>
-            <input type="text" id="username" name="username" required>
+		<div class="hamburger" onclick="location.href='./index.html'; return false;">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="title">Emergency GPS Tracking</div>
+		<button class="login-button" onclick="location.href='./loginpage.html'; return false;">Login/Sign Up</button>
+	</div>
 
-            
-            <input type="submit" value="Verify">
+	<script>
+		// Toggle the menu when the hamburger button is clicked
+		function toggleMenu() {
+			// Add your code here to toggle the menu
+		}
+	</script>
+    <div class="account-box">
+        <h2>Create an Account</h2>
+        <form id="step1Form" action="#" method="post">
+            <label for="aadhar">Aadhar Number</label>
+            <input type="text" id="aadhar" name="aadhar"  required>
+
+            <label for="aadhar">Aadhar Number</label>
+            <input type="text" id="aadhar" name="aadhar"  maxlength="12" required>
+        
+            <label for="dob">Date of Birth</label>
+            <input type="Date" id="dob" name="dob"  min="01-01-1900" max="31-12-2100" required>
+
+
+            <input type="button" value="Next" onclick="nextStep()">
+        </form>
+        <form id="step2Form" action="#" method="post" style="display: none;">
+            <label for="otp">Enter OTP</label>
+<div class="otp-container">
+    <input type="text" maxlength="1" class="otp-box" id="otp1" oninput="moveToNext(this, 'otp2')">
+    <input type="text" maxlength="1" class="otp-box" id="otp2" oninput="moveToNext(this, 'otp3')">
+    <input type="text" maxlength="1" class="otp-box" id="otp3" oninput="moveToNext(this, 'otp4')">
+    <input type="text" maxlength="1" class="otp-box" id="otp4" oninput="moveToNext(this, 'otp5')">
+    <input type="text" maxlength="1" class="otp-box" id="otp5" oninput="moveToNext(this, 'otp6')">
+    <input type="text" maxlength="1" class="otp-box" id="otp6">
+</div>
+
+<div class="otp-buttons">
+    <button onclick="goToPrevious()">Back</button>
+    <button onclick="goToNext()">Next</button>
+</div>
+
         </form>
     </div>
+    
+
+    <script>
+    var step1Form = document.getElementById('step1Form'); // Define step1Form outside the functions
+
+function nextStep() {
+    var step1Form = document.getElementById('step1Form');
+    var step2Form = document.getElementById('step2Form');
+    
+    // Hide step 1 form and show step 2 form
+    step1Form.style.display = 'none';
+    step2Form.style.display = 'block';
+} 
+
+function goToPrevious() {
+    var step2Form = document.getElementById('step2Form');
+    
+    // Hide step 2 form and show step 1 form
+    step2Form.style.display = 'none';
+    step1Form.style.display = 'block';
+}
+
+// JavaScript to validate Aadhar number input
+document.getElementById('aadhar').addEventListener('input', function() {
+    var input = this.value;
+    if (/[^0-9]/.test(input)) { // If input contains non-numeric characters
+        this.value = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+    }
+});
+
+// Function to move focus to the next input box
+function moveToNext(currentInput, nextInputId) {
+    if (currentInput.value.length === 1) {
+        document.getElementById(nextInputId).focus();
+    }
+}
+
+    // JavaScript to validate Aadhar number input
+     document.getElementById('aadhar').addEventListener('input', function() {
+    var input = this.value;
+    if (/[^0-9]/.test(input)) { // If input contains non-numeric characters
+        this.value = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+    }
+    });
+
+    // Function to move focus to the next input box
+    function moveToNext(currentInput, nextInputId) {
+    if (currentInput.value.length === 1) {
+        document.getElementById(nextInputId).focus();
+    }
+    }
+
+      </script>
 </body>
 </html>

@@ -1,17 +1,60 @@
-reply_dictionary = {
-    "Hi":"Hi, How can I help you.","Hello":"Hello, How can I assist you.","Good morning":"Good morning, What can I do for you.",
-    "Good afternoon": "Good afternoon, How may I help you.","Good evening":"Good evening, How can I assist you.",
-    "Hey there":"Hey, How can I help you.","Hey":"Hey, How can I help you",
-    "नमस्ते":"नमस्ते बताइए मैं आपकी कैसे सेवा कर सकती हूँ","प्रणाम":"प्रनाम सेवा बताइये","अभिवादन":"अभिवादन मैं आपकी क्या सेवा कर सकती हूँ",
-    "शुभ प्रभात":"शुभ प्रभात मैं आपकी क्या सेवा कर सकती हूँ","राम-राम ":"राम-राम, मैं आपकी क्या सेवा कर सकती हूँ"
-}
-
-def virtual_reply(text):
-    
-    if text in reply_dictionary:
-        return reply_dictionary[text]
-    else:
-        return "Please speak clearly. कृपया स्पष्ट भाषा का प्रयोग करें"
-
-msg = input("Enter caller's name: ")
-print(virtual_reply(msg))
+intents={"greeting":{"patterns":["Hello","Hi","Howdy","Greetings","Good Morning","Good afternoon",
+        "Good evening","Hi there","Hey there","Whats up","Hello there","नमस्ते","प्रणाम","अभिवादन"],
+        "responses":["Hello How can I assist you?","Hi there!","Hey! What can I do for you?",
+                     "Howdy! What brings you here?","Greetings! How may I help you?",
+                     "Good Morning! How can I be of service","Good afternoon! What do you need assistance with?",
+                     "Good evening! How may I assist you?","Hey there! How can I help you?","Hi! What's on your mind",
+                     "Hello there! How can I assist you there?", "नमस्ते बताइए मैं आपकी कैसे सेवा कर सकती हूँ?",
+                     "प्रनाम सेवा बताइये?", "अभिवादन मैं आपकी क्या सेवा कर सकती हूँ?"]}}
+Crime={"Police":{"patterns":["abduction","arson","assassination","assault","bigamy","blackmail","bombing",
+                              "bribery","burglary","child abuse	","corruption","crime","cybercrime","domestic violence	",
+                              "drunk driving", "fraud","hijacking","hit and run	","identity theft","kidnapping",
+                              "looting","mugging","murder","pickpocketing","poaching","rape","riot","robbery",
+                              "shoplifting","smuggling","speeding","terrorism","theft","trafficking","treason",
+                              "trespassing","vandalism","हत्यारा","आक्रमण","धोखा देना ","अपराध","नष्ट करना",
+                              "गैरकानूनी","अपहरण","मारना","लूट","तस्कर","जासूस","आतंकवादी","चोर","हिंसा","हिंसक"],
+                "responses":["Dont worry! Police is on the way to help you. There GPS location is being sent to you on your phone number!",
+                             "Stay away from fire. Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Try to stop it. Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Get people away from that place. Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Try to record the crime on your phone. Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Try to record it on your phone. Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Try to record the crime on your phone. Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Try to record it on your phone. Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to investigate the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to stop the crime.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Dont touch the incident site or the dead body.Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.There GPS location is being sent to you on your phone number!",
+                             "पुलिस आ रही है सावधान रहे जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है","पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है",
+                             "पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है","पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है",
+                             "पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है","पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है",
+                             "पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है","पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है",
+                             "पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है","पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है",
+                             "पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है","पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है",
+                             "पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है","पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है",
+                             "पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है"]}}

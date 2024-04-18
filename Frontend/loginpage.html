@@ -3,6 +3,28 @@
 <head>
   <title>Diprella Sign In/Registration</title>
   <style>
+    /* Set the style for the button */
+.button {
+  text-align: left;
+  margin-top: 20px;
+}
+
+/* Set the style for the link inside the button div */
+.button a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Set the style for the link inside the button div when hovered */
+.button a:hover {
+  background-color: #3e8e41;
+}
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -62,7 +84,10 @@
       <input type="submit" value="LOGIN">
     </form>
     <p class="center"> Or </p>
-    <p class="center"><a href="#">Create new account</a></p>
+    <div class="button">
+      <p class="center"><a href="#">Create new account</a></p>
+    </div>
+    
   </div>
 </body>
 </html>

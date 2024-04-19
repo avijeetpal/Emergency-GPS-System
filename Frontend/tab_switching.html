@@ -100,62 +100,7 @@ input:checked + .slider:before {
 
 </head>
 <body>
-    <div class="container">
-        <div class="section">
-          <div class="toggle">
-            <label class="switch" for="toggleBtn">
-              <input type="checkbox" id="toggleBtn">
-              <span class="slider"></span>
-            </label>
-          </div>
-          <div class="content" id="contentSpeech">
-            <h2 class="left-heading">Emergency Quick Speak</h2>
-            <!-- Content for speech recognition system -->
-            <p class="left-heading" >Content for speech recognition system</p>
-            <div class="speech-section">
-              <div class="speech-recognition-section">
-                <i class="fas fa-microphone"></i>
-                <div class="mic">
-                  <i class="mic-icon"></i>
-                  <div class="mic-shadow"></div>
-                </div>
-              </div>
-              <div class="output" id="output"></div>
-            </div>
-          </div>
-          <div class="content hidden" id="contentCall">
-            <h2 class="left-heading">Emergency Quick Call</h2>
-            <!-- Content for call section -->
-            <p class="left-heading" >Content for call section</p>
-          </div>
-          <div class="icons">
-            <div class="icon" id="micIcon"><i class="fas fa-microphone"></i></div>
-            <div class="icon" id="callIcon"><i class="fas fa-phone"></i></div>
-          </div>
-        </div>
-      </div>
-      
-      
-      
-      
-    <script>
-        document.getElementById("toggleBtn").addEventListener("change", function() {
-  var checked = this.checked;
-  var contentSpeech = document.getElementById("contentSpeech");
-  var contentCall = document.getElementById("contentCall");
-
-  // Toggle visibility of content based on toggle state
-  if (checked) {
-    contentSpeech.classList.add("hidden");
-    contentCall.classList.remove("hidden");
-  } else {
-    contentSpeech.classList.remove("hidden");
-    contentCall.classList.add("hidden");
-  }
-});
-
-
-    </script>  
+     
 </body>
 </html>
 

@@ -12,3 +12,5 @@ function showPosition(position) {
     document.getElementById("demo").innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
 
 }
+
+getLocation()

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="facedetection.css">
+    <script src="./facedetection.js"></script>
+</head>
+<body>
+    <div class="container">
+		<div class="hamburger" onclick="location.href='./index.html'; return false;">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="title">Emergency GPS Tracking</div>
+		<button class="login-button" onclick="location.href='./loginpage.html'; return false;">profile</button>
+	</div>
+
+	<script>
+		// Toggle the menu when the hamburger button is clicked
+		function toggleMenu() {
+			// Add your code here to toggle the menu
+		}
+	</script>
+    <!-- // This is for speech recognition module. Here speech recognition is added -->
+    <div class="ambulance-siren-line"></div>
+
+    <div class="container1">
+        <h1>Face Detection</h1>
+        <canvas id="faceCanvas"></canvas>
+    </div>
+</body>
+</html>

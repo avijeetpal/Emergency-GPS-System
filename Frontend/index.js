@@ -13,3 +13,18 @@
     console.error('Speech recognition error:', event.error);
   };
 }
+
+// Javascript for toggle button 
+
+document.getElementById("toggleBtn").addEventListener("change", function() {
+  var email = document.getElementById("email");
+  var phone = document.getElementById("phone");
+  
+  if (this.checked) {
+    email.classList.remove("hidden");
+    phone.classList.add("hidden");
+  } else {
+    email.classList.add("hidden");
+    phone.classList.remove("hidden");
+  }
+});

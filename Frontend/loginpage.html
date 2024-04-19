@@ -2,56 +2,27 @@
 <html>
 <head>
   <title>Diprella Sign In/Registration</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f0f0;
-    }
-    #container {
-      width: 300px;
-      margin: 50px auto;
-      padding: 20px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-    }
-    h1 {
-      text-align: center;
-      margin-top: 0;
-    }
-    form {
-      margin-top: 20px;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-    }
-    input[type="text"], input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-    input[type="submit"] {
-      width: 100%;
-      padding: 10px;
-      background-color: #4CAF50;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    input[type="submit"]:hover {
-      background-color: #3e8e41;
-    }
-  </style>
+  <link rel="stylesheet" href="loginpage.css">
+  <link rel="stylesheet" href="./index.css">
+  <script src="./index.js"></script>
 </head>
 <body>
+	<div class="container">
+		<div class="hamburger" onclick="location.href='./index.html'; return false;">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="title">Emergency GPS Tracking</div>
+		<button class="login-button" onclick="location.href='./loginpage.html'; return false;">Login/Sign Up</button>
+	</div>
+
+	<script>
+		// Toggle the menu when the hamburger button is clicked
+		function toggleMenu() {
+			// Add your code here to toggle the menu
+		}
+	</script>
   <div id="container">
     <h1>Welcome </h1>
     <form>
@@ -62,7 +33,10 @@
       <input type="submit" value="LOGIN">
     </form>
     <p class="center"> Or </p>
-    <p class="center"><a href="#">Create new account</a></p>
+    <div class="button">
+      <a href="./createaccount.html">Create new account</a>
+    </div>
+    
   </div>
 </body>
 </html>

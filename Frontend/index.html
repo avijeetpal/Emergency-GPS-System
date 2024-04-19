@@ -3,6 +3,8 @@
 <head>
 	<title>My Website</title>
 	<link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./speech_reco.css">
+  <script src="./speech_reco.js"></script>
     <script src="./index.js"></script>
 </head>
 <body>
@@ -26,10 +28,33 @@
     <div class="ambulance-siren-line"></div>
 
 
-    
+    <div class="container1">
+      <div class="box" id="content1">
+          <!-- Content 1 (active by default) -->
+            <h2>Emergency Speak</h2>
+            <p>Tell us about your situation we will reach you soon....</p>
+          <button id="micButton" onclick="toggleRecording()">
+            <img src="./images/logout.png" alt="Microphone" class="mic-icon">
+            <div class="glow-ring"></div>
+            <div class="glow-ring"></div>
+            <div class="glow-ring"></div>
+          </button>
+      </div>
+      <div class="box" id="content2" style="display: none;">
+          <!-- Content 2 (inactive by default, hidden initially) -->
+          <h2>Emergency call</h2>
+          <p>You can also call to describe your location</p>
+          
+      </div>
+      <label class="switch">
+          <input type="checkbox" id="toggleSwitch" onchange="toggleContent()">
+          <span class="slider"></span>
+      </label>
+    </div>
 
       <!-- Services Section-->
-      <div class="services-section">
+      <div>
+        <div class="services-section">
         <h2>Services</h2>
         <div class="service-item">
           <img src="./images/icons8-ambulance-48.png" alt="Emergency Medical Services">
@@ -43,8 +68,8 @@
           <img src="./images/icons8-fire-truck-96.png" alt="Fire Services">
           <p>Fire</p>
         </div>
-      </div>
-      <div class="services-section">
+       </div>
+       <div class="services-section">
         <div class="service-item">
           <img src="./images/tow_truck-removebg-preview.png" alt="Tow Truck Services">
           <p>Tow Truck</p>
@@ -54,7 +79,7 @@
           <p>Rescue</p>
         </div>
         <!-- Add more service items as needed -->
+       </div>
       </div>
-      
 </body>
 </html>

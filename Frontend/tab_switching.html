@@ -6,213 +6,59 @@
 <title>Toggle Content</title>
 <link rel="stylesheet" href="mic.js">
 <style>
-.container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.658);
-  overflow: hidden;
-  position: relative;
-}
-
-.box {
-    width: 100%;
-    height: 100%;
-}
-
-h2 {
-    margin-top: 0;
-}
-
-.switch {
-  position: absolute; /* Position the switch absolutely */
-    top: 10px; /* Adjust the top position */
-    right: 20px; /* Align to the right */
-}
-
-.switch input {
-    display: none;
-}
-
-.slider {
+.ambulance-siren-line {
     position: relative;
-    display: inline-block;
-    width: 60px; /* Width of the slider */
-    height: 34px; /* Height of the slider */
-    background-color: #ff0000; /* Background color of the slider */
-    border-radius: 34px;
-    cursor: pointer;
-    -webkit-transition: .4s;
-    transition: .4s;
+    height: 25px;
+    margin-bottom: 2px;
+    background: linear-gradient(to right, #00aeff, #ff0000, #00aeff, #ff0000, #00aeff); /* Ambulance siren color gradient */
+    background-size: 200% 100%; /* Double the width of the gradient */
+    animation: ambulance-siren 3s linear infinite; /* Apply animation */
 }
 
-.slider:before {
+.floating-text {
     position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    border-radius: 50%;
-    -webkit-transition: .4s;
-    transition: .4s;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    white-space: nowrap; /* Prevent text from wrapping */
+    animation: floatText 10s linear infinite; /* Apply animation */
+    color: white;
+}
+.floating-text:nth-child(1) {
+    animation-delay: 0s; /* Delay for the first text */
 }
 
-input:checked + .slider {
-    background-color: #007bff; /* Background color of the slider when checked */
+.floating-text:nth-child(2) {
+    animation-delay: 5s; /* Delay for the second text */
 }
-
-input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-/* mic css */
-
-button {
-    position: relative;
-    background: none;
-    border: none;
-    cursor: pointer;
-    outline: none;
-}
-
-button .mic-icon {
-    width: 50px;
-    height: 50px;
-}
-
-.glow-ring {
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid rgb(255, 0, 0);
-    opacity: 0; /* Initially hide the glow */
-    transition: opacity 0.3s ease; /* Smooth transition */
-}
-
-.active .glow-ring {
-    opacity: 1; /* Show the glow when active */
-}
-
-.glow-ring:nth-child(2) {
-    width: 100px; /* Adjust size of second ring */
-    height: 100px;
-    top: -25px; /* Adjust position of second ring */
-    left: -25px;
-    animation: pulse-ring 1.5s infinite alternate; /* Apply animation to second ring */
-}
-
-.glow-ring:nth-child(3) {
-    width: 120px; /* Adjust size of third ring */
-    height: 120px;
-    top: -35px; /* Adjust position of third ring */
-    left: -35px;
-    animation: pulse-ring 2s infinite alternate; /* Apply animation to third ring */
-}
-
-@keyframes pulse-ring {
+@keyframes ambulance-siren {
     0% {
-        transform: scale(0.33);
-        opacity: 1;
+        background-position: 0% 0%;
     }
-    80%, 100% {
-        opacity: 0;
+    100% {
+        background-position: 200% 0%; /* Move the gradient to the right */
     }
 }
+
+@keyframes floatText {
+    0% {
+        left: 100%; /* Start position */
+    }
+    100% {
+        left: -100%; /* End position */
+    }
+}
+
+
+
 </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="box" id="content1">
-        <!-- Content 1 (active by default) -->
-        <h2>Emergency Speak</h2>
-        <p>Tell us about your situtaion we will reach you soon....</p>
-        <button id="micButton" onclick="toggleRecording()">
-          <img src="./images/logout.png" alt="Microphone" class="mic-icon">
-          <div class="glow-ring"></div>
-          <div class="glow-ring"></div>
-          <div class="glow-ring"></div>
-        </button>
-    </div>
-    <div class="box" id="content2" style="display: none;">
-        <!-- Content 2 (inactive by default, hidden initially) -->
-        <h2>Emergency call</h2>
-        <p>You can also call to describe your location</p>
-        
-    </div>
-    <label class="switch">
-        <input type="checkbox" id="toggleSwitch" onchange="toggleContent()">
-        <span class="slider"></span>
-    </label>
+  <div class="ambulance-siren-line">
+    <div class="floating-text">This is an emergency</div>
+    <div class="floating-text">Another emergency message</div>
 </div>
 
-
-<script>
-function toggleContent() {
-    var toggleSwitch = document.getElementById('toggleSwitch');
-    var content1 = document.getElementById('content1');
-    var content2 = document.getElementById('content2');
-
-    if (toggleSwitch.checked) {
-        // Show content 2 and hide content 1
-        content1.style.display = 'none';
-        content2.style.display = 'block';
-    } else {
-        // Show content 1 and hide content 2
-        content1.style.display = 'block';
-        content2.style.display = 'none';
-    }
-}
-let isRecording = false;
-let mediaRecorder;
-let chunks = [];
-
-function toggleRecording() {
-    if (!isRecording) {
-        startRecording();
-    } else {
-        stopRecording();
-    }
-}
-
-function startRecording() {
-    navigator.mediaDevices.getUserMedia({ audio: true })
-        .then(function(stream) {
-            mediaRecorder = new MediaRecorder(stream);
-            mediaRecorder.ondataavailable = function(e) {
-                chunks.push(e.data);
-            };
-            mediaRecorder.onstop = function() {
-                const blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
-                const audioUrl = window.URL.createObjectURL(blob);
-                const audio = new Audio(audioUrl);
-                audio.controls = true;
-                document.body.appendChild(audio);
-            };
-            mediaRecorder.start();
-            isRecording = true;
-            document.getElementById('micButton').classList.add('active');
-        })
-        .catch(function(err) {
-            console.error('Error accessing microphone:', err);
-        });
-}
-
-function stopRecording() {
-    mediaRecorder.stop();
-    isRecording = false;
-    document.getElementById('micButton').classList.remove('active');
-}
-
-</script>
 
 </body>
 </html>

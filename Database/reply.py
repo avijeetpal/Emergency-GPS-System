@@ -72,7 +72,7 @@ intents={"greeting":{"patterns":["Hello","Hi","Howdy","Greetings","Good Morning"
                              "Police is coming to handle the situation.Their GPS location is being sent to you on your phone number!",
                              "Police is coming to handle the situation.Their GPS location is being sent to you on your phone number!",
                              "Police is coming to handle the situation.Their GPS location is being sent to you on your phone number!",
-                             "Police is coming to handle the situation.Their GPS location is being sent to you on your phone number!",
+                             "Police is coming to handle the situation.Their GPS location is being sent to you on your phone number!"
                              "पुलिस आ रही है सावधान रहे जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है","पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है",
                              "पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है","पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है",
                              "पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है","पुलिस आ रही है जीपीएस जगह आपके मोबाइल पर भेजी जा चुकी है",

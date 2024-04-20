@@ -1,10 +1,9 @@
-# app.py
-
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  # SQLite database for simplicity
+# Update the MySQL connection string with your MySQL database credentials
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://username:password@hostname/user'
 db = SQLAlchemy(app)
 
 # Define the User model
@@ -37,3 +36,4 @@ def create_account():
 if __name__ == '__main__':
     db.create_all()  # Create database tables
     app.run(debug=True)
+

@@ -22,34 +22,31 @@ intents = {
     },
     "Police": {
     "patterns": [
-        "assault and battery", "bomb threat", "breach of peace", "carjacking", "child abduction",
-        "credit card fraud", "cyberstalking", "domestic abuse", "embezzlement", "extortion",
-        "hit-and-run", "human trafficking", "identity theft", "illegal gambling", "kidnapping",
-        "manslaughter", "missing person", "money laundering", "narcotics trafficking", "public intoxication",
-        "reckless driving", "resisting arrest", "sexual assault", "stalking", "suspicious package",
-        "terrorist threat", "vandalism", "warrant arrest", "weapons possession", "white-collar crime",
-        "धारा 377", "अपहरण और लूट", "आतंकवादी धमकी", "हिंसा और बैटरी", "जाली नकली",
-        "ड्रग्स तस्करी", "धरना-प्रदर्शन", "कारबारी धोखाधड़ी", "भ्रष्टाचार", "आतंकवाद",
-        "मानहानि", "समुद्री डकैती", "अवैध शराब", "सार्वजनिक शराब", "जाली नकली",
-        "पर्यवेक्षण", "मिलावट", "समुद्री डकैती", "किसी की बातचीत का अनधिकृत रूप से सुनना",
-        "सार्वजनिक व्यवहार", "धारा 302", "हिंसा और बैटरी", "उग्रता और आपातकालीन स्थितियों का निर्माण",
-        "क्राइम स्थान की जांच", "शांति अभियान", "अवैध शिकार", "भ्रष्टाचार और अपराध",
-        "सामाजिक न्याय", "न्यायिक शिकायत", "उग्र नागरिकों का निर्माण", "हिंसा और बल",
-        "धर्मांतरण", "आत्म हत्या", "विचित्र प्रकरण", "धोखाधड़ी और लूट", "बच्चों की अपहरण",
-        "उद्धारण", "स्पष्ट बंदूक", "आतंकवादी हमला", "उद्धार और रक्षा", "न्यायिक अधिकार का उल्लंघन",
-        "अपराधिक मामला", "गवाह बदल", "विचारात्मक अधिकार", "संशोधित उपयोगी सूचना", "गार्डियनशिप अधिकार",
-        "प्रतिबंध कार्यवाही", "द्वंद्विता", "आपराधिक रूप से अतिक्रमण", "पुलिस स्थिति का निरीक्षण",
-        "अपराधिक रूप से बहाव"
+        "robbery", "burglary", "theft", "assault", "murder",
+        "drug trafficking", "vandalism", "trespassing", "disturbance", "fraud",
+        "hijacking", "hostage situation", "illegal parking", "noise complaint", "suspicious activity",
+        "domestic violence", "harassment", "illegal gathering", "prostitution", "public disturbance",
+        "hit and run", "reckless driving", "jaywalking", "road rage", "unlawful assembly",
+        "loitering", "stalking", "traffic violation", "drug possession", "illegal dumping",
+        "gang activity", "solicitation", "public urination", "drunk driving", "illegal street racing",
+        "डकैती", "चोरी", "हमला", "हत्या", "उत्पादन",
+        "विनाशकारी कृत्य", "उपद्रव", "अपराध", "कुट्टा", "धोखाधड़ी",
+        "उत्पादन", "संदिग्ध गतिविधि", "घरेलू हिंसा", "उत्पीड़न", "कानूनी इकट्ठा",
+        "घूसखोरी", "गिरफ्तारी", "अवैध पार्किंग", "शोर की शिकायत", "संदिग्ध गतिविधि",
+        "सड़क दुर्घटना", "धारा 302", "मारपीट", "स्टालिंग", "ट्रैफिक उल्लंघन",
+        "ड्रग्स की धरोहर", "अवैध डंपिंग", "गुंडागर्दी", "पुश्ति", "सार्वजनिक पेशाब",
+        "शराब की दिवाली", "सड़क पर होने वाली अवैध रेसिंग"
     ],
     "responses": [
         "Police is on the way to handle the situation. Their GPS location is being sent to you on your phone number!",
         "Please remain calm. Police assistance is being dispatched to your location. Stay safe!",
         "Law enforcement is being deployed to your location. Keep yourself safe and await their arrival.",
+        ...
         "पुलिस आ रही है स्थिति का संभालन करने के लिए। उनकी जीपीएस स्थान को आपके फोन नंबर पर भेजा जा रहा है!"
     ]
 },
 
-   "ambulance": {
+"ambulance": {
     "patterns": [
         "heart attack", "stroke", "choking", "severe bleeding", "respiratory distress",
         "unconsciousness", "overdose", "poisoning", "allergic reaction", "seizure",
@@ -67,11 +64,12 @@ intents = {
         "An ambulance is en route to your location. Please stay calm and await assistance.",
         "Emergency medical services are on their way. Keep yourself safe and await their arrival.",
         "Medical assistance is being dispatched to your location. Help is on the way!",
+        ...
         "आपके स्थान के लिए एक रोगी वाहन रास्ते में है। कृपया शांत रहें और सहायता का इंतजार करें।"
     ]
 },
 
-    "Firebrigade": {
+"Firebrigade": {
     "patterns": [
         "house fire", "building fire", "wildfire", "forest fire", "vehicle fire",
         "industrial fire", "chemical spill", "gas leak", "explosion", "smoke alarm",
@@ -90,8 +88,8 @@ intents = {
         "The fire brigade is on their way to your location. Stay safe and await assistance.",
         "Emergency firefighting services are being dispatched. Please follow safety protocols until help arrives.",
         "Firefighting units are en route to your location. Keep calm and await assistance.",
+        ...
         "आपके स्थान के लिए अग्निशमन दल रास्ते में है। कृपया सुरक्षित रहें और सहायता का इंतजार करें।"
     ]
 }
-
 }

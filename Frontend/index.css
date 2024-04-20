@@ -94,7 +94,7 @@ body {
     transform: translateY(-50%); /* Center vertically */
     white-space: nowrap; /* Prevent text from wrapping */
     animation: floatText 10s linear infinite; /* Apply animation */
-    color: white;
+    color: rgb(255, 187, 0);
 }
 .floating-text:nth-child(1) {
     animation-delay: 0s; /* Delay for the first text */

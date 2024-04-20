@@ -151,91 +151,34 @@
 			// Add your code here to toggle the menu
 		}
 	</script>
-    <div class="account-box">
-        <h2>Create an Account</h2>
-        <form id="step1Form" action="#" method="post">
-            <label for="aadhar">Aadhar Number</label>
-            <input type="text" id="aadhar" name="aadhar"  required>
+   <!-- create_account.html -->
 
-            <label for="aadhar">Aadhar Number</label>
-            <input type="text" id="aadhar" name="aadhar"  maxlength="12" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+</head>
+<body>
+    <h1>Create Account</h1>
+    <form method="POST">
+        <label for="name">Name (as per Aadhar):</label>
+        <input type="text" id="name" name="name" required><br><br>
         
-            <label for="dob">Date of Birth</label>
-            <input type="Date" id="dob" name="dob"  min="01-01-1900" max="31-12-2100" required>
+        <label for="aadhar">Aadhar Number:</label>
+        <input type="text" id="aadhar" name="aadhar" maxlength="12" required><br><br>
+        
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+        
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" maxlength="10" required><br><br>
+        
+        <input type="submit" value="Create Account">
+    </form>
+</body>
+</html>
 
-
-            <input type="button" value="Next" onclick="nextStep()">
-        </form>
-        <form id="step2Form" action="#" method="post" style="display: none;">
-            <label for="otp">Enter OTP</label>
-<div class="otp-container">
-    <input type="text" maxlength="1" class="otp-box" id="otp1" oninput="moveToNext(this, 'otp2')">
-    <input type="text" maxlength="1" class="otp-box" id="otp2" oninput="moveToNext(this, 'otp3')">
-    <input type="text" maxlength="1" class="otp-box" id="otp3" oninput="moveToNext(this, 'otp4')">
-    <input type="text" maxlength="1" class="otp-box" id="otp4" oninput="moveToNext(this, 'otp5')">
-    <input type="text" maxlength="1" class="otp-box" id="otp5" oninput="moveToNext(this, 'otp6')">
-    <input type="text" maxlength="1" class="otp-box" id="otp6">
-</div>
-
-<div class="otp-buttons">
-    <button onclick="goToPrevious()">Back</button>
-    <button onclick="goToNext()">Next</button>
-</div>
-
-        </form>
-    </div>
-    
-
-    <script>
-    var step1Form = document.getElementById('step1Form'); // Define step1Form outside the functions
-
-function nextStep() {
-    var step1Form = document.getElementById('step1Form');
-    var step2Form = document.getElementById('step2Form');
-    
-    // Hide step 1 form and show step 2 form
-    step1Form.style.display = 'none';
-    step2Form.style.display = 'block';
-} 
-
-function goToPrevious() {
-    var step2Form = document.getElementById('step2Form');
-    
-    // Hide step 2 form and show step 1 form
-    step2Form.style.display = 'none';
-    step1Form.style.display = 'block';
-}
-
-// JavaScript to validate Aadhar number input
-document.getElementById('aadhar').addEventListener('input', function() {
-    var input = this.value;
-    if (/[^0-9]/.test(input)) { // If input contains non-numeric characters
-        this.value = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
-    }
-});
-
-// Function to move focus to the next input box
-function moveToNext(currentInput, nextInputId) {
-    if (currentInput.value.length === 1) {
-        document.getElementById(nextInputId).focus();
-    }
-}
-
-    // JavaScript to validate Aadhar number input
-     document.getElementById('aadhar').addEventListener('input', function() {
-    var input = this.value;
-    if (/[^0-9]/.test(input)) { // If input contains non-numeric characters
-        this.value = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
-    }
-    });
-
-    // Function to move focus to the next input box
-    function moveToNext(currentInput, nextInputId) {
-    if (currentInput.value.length === 1) {
-        document.getElementById(nextInputId).focus();
-    }
-    }
-
-      </script>
 </body>
 </html>
